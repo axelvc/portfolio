@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white;
+    @apply text-brown-400;
+  }
+
+  ::selection {
+    @apply text-white;
+    @apply bg-green-600;
+  }
+
+  * {
+    @apply leading-relaxed;
+    @apply tracking-wide;
+    @apply outline-green-600;
+  }
+
+  @supports (-moz-appearance: none) {
+    *:focus-visible {
+      @apply outline outline-2 rounded-sm;
+    }
+  }
+}
