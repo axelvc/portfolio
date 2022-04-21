@@ -1,4 +1,4 @@
-import Section from './Section'
+import Section from '/components/Section'
 
 const description = [
   "Hello! My name is Axel. I'm a Mexican self-taught developer, big fan of all about technology, also interested in accessibility and UX/UI",

@@ -1,5 +1,5 @@
-import Section from './Section'
-import Icon, { Props as IconProps } from './Icon/Icon'
+import Section from '/components/Section'
+import Icon, { Props as IconProps } from '/components/Icon/Icon'
 
 const contactList: { name: string; url: string; icon: IconProps['name'] }[] = [
   { name: 'Linkedin', url: '#linkedin', icon: 'linkedin' },

@@ -1,5 +1,5 @@
-import Icon from './Icon/Icon'
-import Section from './Section'
+import Section from '/components/Section'
+import Icon from '/components/Icon/Icon'
 
 const projectsList = [
   {

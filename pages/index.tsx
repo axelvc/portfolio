@@ -1,9 +1,9 @@
-import Underline from '../public/underline.svg'
+import Underline from '/public/underline.svg'
 import Head from 'next/head'
-import About from '../components/About'
-import Projects from '../components/Projects'
-import Contact from '../components/Contact'
-import FastLinks from '../components/FastLinks'
+import About from '/components/About'
+import Projects from '/components/Projects'
+import Contact from '/components/Contact'
+import FastLinks from '/components/FastLinks'
 
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-import Icon, { Props as IconProps } from './Icon/Icon'
+import Icon, { Props as IconProps } from '/components/Icon/Icon'
 
 const networks: { name: string; url: string; icon: IconProps['name'] }[] = [
   { name: 'linkedin', url: '#linkedin', icon: 'linkedin' },
