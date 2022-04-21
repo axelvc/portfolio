@@ -13,10 +13,11 @@ export default function Contact({ className }: { className?: string }) {
       <ul className="grid gap-6">
         {contactList.map(({ name, url, icon }) => (
           <li key={name}>
-            <a href={url} className="inline-flex gap-3.5 items-center h-10">
+            <a href={url} className="relative group inline-flex gap-3.5 items-center h-10">
               <Icon name={icon} />
               {name}
               <Icon name="external" size="sm" />
+              <span className="absolute bottom-1 inset-x-0 h-0.5 bg-current transition-transform origin-left duration-300 ease-out scale-x-0 group-hover:scale-x-100" />
             </a>
           </li>
         ))}

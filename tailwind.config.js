@@ -10,7 +10,7 @@ module.exports = {
         },
         green: {
           200: '#e8e8e4',
-          600: '#4D645F',
+          600: '#4d645f',
         },
       },
       fontFamily: {
