@@ -1,21 +1,22 @@
+import data from '/public/data.json'
 import Section from '/components/Section'
 import Icon, { Props as IconProps } from '/components/Icon/Icon'
 
 const contactList: { name: string; url: string; icon: IconProps['name'] }[] = [
   {
-    name: 'Linkedin',
+    name: 'LinkedIn',
     icon: 'linkedin',
-    url: 'http://linkedin.com/in/axelvc',
+    url: data.networks.linkedin,
   },
   {
     name: 'Twitter',
     icon: 'twitter',
-    url: 'https://twitter.com/axel__vc',
+    url: data.networks.twitter,
   },
   {
     name: 'Email me',
     icon: 'email',
-    url: 'mailto:a.axelvc@gmail.com',
+    url: `mailto:${data.networks.email}`,
   },
 ]
 

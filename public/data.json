@@ -1,0 +1,40 @@
+{
+  "description": [
+    "Hello! My name is Axel. I'm a self-taught developer from Mexico, a big fan of all about technology, and interested in accessibility and UX/UI.",
+    "I've loved technology since I was a child and started programming in 2018. I consider myself a curious person, so I'm constantly learning new things"
+  ],
+  "skills": ["HTML", "Javascript", "React", "Redux", "Git", "CSS", "Typescript", "Vue", "Node", "Express"],
+  "projects": [
+    {
+      "title": "This web",
+      "code": "https://github.com/axelvc/portfolio",
+      "technologies": ["react"]
+    },
+    {
+      "title": "Mini Translator",
+      "code": "https://github.com/axelvc/mini_translator",
+      "link": "https://chrome.google.com/webstore/detail/mini-translator/godoijpcenklboeghnkeafimbadkgiib",
+      "description": "Web extension to translate selected or written text",
+      "technologies": ["vue"]
+    },
+    {
+      "title": "Typing Test",
+      "code": "https://github.com/axelvc/typing_test",
+      "link": "https://typest.netlify.app/",
+      "description": "Measure your typing speed",
+      "technologies": ["react"]
+    },
+    {
+      "title": "Sudoku Game",
+      "code": "https://github.com/axelvc/sudoku",
+      "link": "https://axelvc-sudoku.netlify.app",
+      "technologies": ["react"]
+    }
+  ],
+  "networks": {
+    "linkedin": "http://linkedin.com/in/axelvc",
+    "twitter": "https://twitter.com/axel__vc",
+    "github": "https://github.com/axelvc",
+    "email": "a.axelvc@gmail.com"
+  }
+}

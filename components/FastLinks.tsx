@@ -1,27 +1,28 @@
+import data from '/public/data.json'
 import Icon, { Props as IconProps } from '/components/Icon/Icon'
 
-const networks: { name: string; url: string; icon: IconProps['name'] }[] = [
+const networksList: { name: string; url: string; icon: IconProps['name'] }[] = [
   {
-    name: 'Linkedin',
+    name: 'LinkedIn',
     icon: 'linkedin',
-    url: 'http://linkedin.com/in/axelvc',
+    url: data.networks.linkedin,
   },
   {
     name: 'Twitter',
     icon: 'twitter',
-    url: 'https://twitter.com/axel__vc',
+    url: data.networks.twitter,
   },
   {
     name: 'Github',
     icon: 'github',
-    url: 'https://github.com/axelvc',
+    url: data.networks.github,
   },
 ]
 
 export default function FastLinks({ className }: { className?: string }) {
   return (
     <ul className={`flex ${className}`}>
-      {networks.map(({ name, url, icon }, i) => (
+      {networksList.map(({ name, url, icon }, i) => (
         <li key={name}>
           <a
             href={url}
