@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 
 const icons = {
+  code: dynamic(() => import('./code.svg')),
   email: dynamic(() => import('./email.svg')),
   external: dynamic(() => import('./external.svg')),
   github: dynamic(() => import('./github.svg')),

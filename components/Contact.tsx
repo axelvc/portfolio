@@ -2,9 +2,21 @@ import Section from '/components/Section'
 import Icon, { Props as IconProps } from '/components/Icon/Icon'
 
 const contactList: { name: string; url: string; icon: IconProps['name'] }[] = [
-  { name: 'Linkedin', url: '#linkedin', icon: 'linkedin' },
-  { name: 'Twitter', url: '#twitter', icon: 'twitter' },
-  { name: 'Email me', url: '#email', icon: 'email' },
+  {
+    name: 'Linkedin',
+    icon: 'linkedin',
+    url: 'http://linkedin.com/in/axelvc',
+  },
+  {
+    name: 'Twitter',
+    icon: 'twitter',
+    url: 'https://twitter.com/axel__vc',
+  },
+  {
+    name: 'Email me',
+    icon: 'email',
+    url: 'mailto:a.axelvc@gmail.com',
+  },
 ]
 
 export default function Contact({ className }: { className?: string }) {

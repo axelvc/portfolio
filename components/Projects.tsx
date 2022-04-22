@@ -4,23 +4,27 @@ import Icon from '/components/Icon/Icon'
 const projectsList = [
   {
     title: 'This web',
+    code: 'https://github.com/axelvc/portfolio',
     technologies: ['react'],
   },
   {
     title: 'Mini Translator',
-    link: '#mini_translator',
+    code: 'https://github.com/axelvc/mini_translator',
+    link: 'https://chrome.google.com/webstore/detail/mini-translator/godoijpcenklboeghnkeafimbadkgiib',
     description: 'Web extension to translate selected or written text',
     technologies: ['vue'],
   },
   {
     title: 'Typing Test',
-    link: '#typing_test',
+    code: 'https://github.com/axelvc/typing_test',
+    link: 'https://typest.netlify.app/',
     description: 'Measure your typing speed',
     technologies: ['react'],
   },
   {
     title: 'Sudoku Game',
-    link: '#sudoku_game',
+    code: 'https://github.com/axelvc/sudoku',
+    link: 'https://axelvc-sudoku.netlify.app',
     technologies: ['react'],
   },
 ]
@@ -29,25 +33,27 @@ export default function Projects({ className }: { className?: string }) {
   return (
     <Section title="projects" className={className}>
       <div className="group">
-        {projectsList.map(({ title, link, description, technologies }) => (
+        {projectsList.map(({ title, link, code, description, technologies }) => (
           <article
             key={title}
-            className="relative grid gap-2 mt-2 p-6 rounded-sm bg-green-200 transition duration-300 ease-out group-hover:opacity-50 hover:!opacity-100"
+            className="relative mt-2 p-6 rounded-sm bg-green-200 transition duration-300 ease-out group-hover:opacity-50 hover:!opacity-100"
           >
-            <div className="flex items-center">
-              <small className={`text-xs capitalize`}>{technologies.join(', ')}</small>
-
-              {link && (
-                <>
-                  <Icon name="external" size="sm" className="ml-auto" />
-                  <a href={link} className="absolute inset-0" aria-label={title} />
-                </>
-              )}
-            </div>
-
-            <h3 className="text-green-600 font-medium capitalize">{title}</h3>
+            {code && (
+              <a
+                href={code}
+                title="Code"
+                target="_blank"
+                rel="noreferrer"
+                className="z-10 absolute top-6 right-6 grid place-items-center h-8 w-8 cursor-pointer rounded-sm transition-colors hover:bg-green-300 hover:text-green-600"
+              >
+                <Icon name="code" size="sm" />
+              </a>
+            )}
+            <small className="text-xs capitalize">{technologies.join(', ')}</small>
+            <h3 className="my-2 text-green-600 font-medium capitalize">{title}</h3>
 
             {description && <p className="text-sm">{description}</p>}
+            {link && <a href={link} title={title} target="blank" className="absolute inset-0" aria-label={title} />}
           </article>
         ))}
       </div>
