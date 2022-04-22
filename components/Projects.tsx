@@ -11,6 +11,16 @@ export default function Projects({ className }: { className?: string }) {
             key={title}
             className="relative mt-2 p-6 rounded-sm bg-green-200 transition duration-300 ease-out group-hover:opacity-50 hover:!opacity-100"
           >
+            {link && (
+              <a
+                href={link}
+                title={title}
+                target="_blank"
+                rel="noreferrer"
+                className="absolute inset-0"
+                aria-label={title}
+              />
+            )}
             {code && (
               <a
                 href={code}
@@ -26,16 +36,6 @@ export default function Projects({ className }: { className?: string }) {
             <h3 className="my-2 text-green-600 font-medium capitalize">{title}</h3>
 
             {description && <p className="text-sm">{description}</p>}
-            {link && (
-              <a
-                href={link}
-                title={title}
-                target="_blank"
-                rel="noreferrer"
-                className="absolute inset-0"
-                aria-label={title}
-              />
-            )}
           </article>
         ))}
       </div>
