@@ -26,7 +26,16 @@ export default function Projects({ className }: { className?: string }) {
             <h3 className="my-2 text-green-600 font-medium capitalize">{title}</h3>
 
             {description && <p className="text-sm">{description}</p>}
-            {link && <a href={link} title={title} target="blank" className="absolute inset-0" aria-label={title} />}
+            {link && (
+              <a
+                href={link}
+                title={title}
+                target="_blank"
+                rel="noreferrer"
+                className="absolute inset-0"
+                aria-label={title}
+              />
+            )}
           </article>
         ))}
       </div>
