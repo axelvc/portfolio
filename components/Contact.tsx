@@ -1,6 +1,7 @@
 import data from '/public/data.json'
 import Section from '/components/Section'
 import Icon, { Props as IconProps } from '/components/Icon/Icon'
+import MagneticLink from '/components/MagneticLink'
 
 const contactList: { name: string; url: string; icon: IconProps['name'] }[] = [
   {
@@ -26,12 +27,12 @@ export default function Contact({ className }: { className?: string }) {
       <ul className="grid gap-6">
         {contactList.map(({ name, url, icon }) => (
           <li key={name}>
-            <a href={url} className="relative group inline-flex gap-3.5 items-center h-10">
+            <MagneticLink href={url} className="relative group inline-flex gap-3.5 items-center h-10">
               <Icon name={icon} />
               {name}
               <Icon name="external" size="sm" />
               <span className="absolute bottom-1 inset-x-0 h-0.5 bg-current transition-transform origin-left duration-300 ease-out scale-x-0 group-hover:scale-x-100" />
-            </a>
+            </MagneticLink>
           </li>
         ))}
       </ul>

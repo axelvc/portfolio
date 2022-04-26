@@ -1,6 +1,7 @@
 import data from '/public/data.json'
 import Section from '/components/Section'
 import Icon from '/components/Icon/Icon'
+import MagneticLink from '/components/MagneticLink'
 
 export default function Projects({ className }: { className?: string }) {
   return (
@@ -22,7 +23,7 @@ export default function Projects({ className }: { className?: string }) {
               />
             )}
             {code && (
-              <a
+              <MagneticLink
                 href={code}
                 title="Code"
                 target="_blank"
@@ -30,7 +31,7 @@ export default function Projects({ className }: { className?: string }) {
                 className="z-10 absolute top-6 right-6 grid place-items-center h-8 w-8 cursor-pointer rounded-sm transition-colors hover:bg-green-300 hover:text-green-600"
               >
                 <Icon name="code" size="sm" />
-              </a>
+              </MagneticLink>
             )}
             <small className="text-xs capitalize">{technologies.join(', ')}</small>
             <h3 className="my-2 text-green-600 font-medium capitalize">{title}</h3>
