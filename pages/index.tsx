@@ -4,6 +4,7 @@ import About from '/components/About'
 import Projects from '/components/Projects'
 import Contact from '/components/Contact'
 import FastLinks from '/components/FastLinks'
+import Cursor from '/components/Cursor'
 
 export default function Home() {
   return (
@@ -30,6 +31,8 @@ export default function Home() {
       <About className="my-24" />
       <Projects className="my-24" />
       <Contact className="my-24" />
+
+      <Cursor />
     </main>
   )
 }

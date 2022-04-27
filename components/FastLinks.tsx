@@ -28,7 +28,7 @@ export default function FastLinks({ className }: { className?: string }) {
           <MagneticLink
             href={url}
             title={name}
-            className="inline-grid place-items-center h-10 w-10 rounded transition-colors hover:bg-green-200 hover:text-green-600"
+            className="inline-grid place-items-center h-10 w-10 rounded transition-colors hover:text-green-600"
           >
             <Icon name={icon} />
           </MagneticLink>
