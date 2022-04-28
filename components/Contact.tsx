@@ -29,7 +29,7 @@ export default function Contact({ className }: { className?: string }) {
           <li key={name}>
             <MagneticLink
               href={url}
-              className="relative group inline-flex gap-3.5 items-center h-10 transition-colors hover:text-green-600"
+              className="relative group inline-flex gap-3.5 items-center h-10 transition-colors hover:text-green-600 dark:hover:text-rose-300"
             >
               <Icon name={icon} />
               {name}

@@ -20,9 +20,9 @@ export default function Home() {
           <br />
           I&apos;m Axel
           <br />
-          <span className="relative text-brown-600 text-5xl sm:text-6xl md:text-[5rem]">
+          <span className="relative text-brown-600 dark:text-gray-50 text-5xl sm:text-6xl md:text-[5rem]">
             Web Developer
-            <Underline className="absolute top-full inset-x-0 mt-0.5 text-green-600" />
+            <Underline className="absolute top-full inset-x-0 mt-0.5 text-green-600 dark:text-rose-200" />
           </span>
         </h1>
       </div>

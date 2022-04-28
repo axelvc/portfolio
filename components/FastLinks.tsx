@@ -28,7 +28,7 @@ export default function FastLinks({ className }: { className?: string }) {
           <MagneticLink
             href={url}
             title={name}
-            className="inline-grid place-items-center h-10 w-10 rounded transition-colors hover:text-green-600"
+            className="inline-grid place-items-center h-10 w-10 rounded transition-colors hover:text-green-600 dark:hover:text-rose-300"
           >
             <Icon name={icon} />
           </MagneticLink>
@@ -39,7 +39,7 @@ export default function FastLinks({ className }: { className?: string }) {
         <MagneticLink
           href="/cv.pdf"
           download="Axel's_CV"
-          className="relative group inline-block text-green-600 font-medium leading-10"
+          className="relative group inline-block text-green-600 dark:text-rose-200 dark:hover:text-rose-300 font-medium leading-10"
         >
           Get my CV
           <span className="absolute bottom-1 inset-x-0 bg-current transition-transform origin-bottom duration-300 ease-out h-0.5 group-hover:scale-y-[2]" />
