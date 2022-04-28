@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Underline from '/public/underline.svg'
 import Head from 'next/head'
 import About from '/components/About'
@@ -14,13 +15,13 @@ export default function Home() {
         <meta name="description" content="Axel Vasquez | Web Developer" />
       </Head>
 
-      <div className="font-heading inline-flex flex-col justify-center h-[calc(100vh_-_4.5rem)] xl:h-auto">
+      <div className="font-heading inline-flex flex-col justify-center h-[75vh] xl:h-auto">
         <h1 className="leading-tight text-3xl md:text-4xl">
           Hello!
           <br />
           I&apos;m Axel
           <br />
-          <span className="relative text-brown-600 dark:text-gray-50 text-5xl sm:text-6xl md:text-[5rem]">
+          <span className="relative text-brown-600 dark:text-gray-50 text-[2.6rem] sm:text-6xl md:text-[5rem]">
             Web Developer
             <Underline className="absolute top-full inset-x-0 mt-0.5 text-green-600 dark:text-rose-200" />
           </span>

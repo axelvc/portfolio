@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -28,5 +30,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('pointer-fine', '@media (hover: hover) and (pointer: fine)')
+    }),
+  ],
 }
