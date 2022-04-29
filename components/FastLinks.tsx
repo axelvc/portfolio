@@ -30,7 +30,7 @@ export default function FastLinks({ className }: { className?: string }) {
             title={name}
             className="inline-grid place-items-center h-10 w-10 rounded transition-colors hover:text-green-600 dark:hover:text-rose-300"
           >
-            <Icon name={icon} />
+            <Icon name={icon} lazy={false} />
           </MagneticLink>
         </li>
       ))}
