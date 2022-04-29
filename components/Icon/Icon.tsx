@@ -8,6 +8,7 @@ const icons = {
   github: dynamic(() => import('./github.svg')),
   linkedin: dynamic(() => import('./linkedin.svg')),
   twitter: dynamic(() => import('./twitter.svg')),
+  lang: dynamic(() => import('./lang.svg')),
 }
 
 const sizes = {
@@ -15,8 +16,10 @@ const sizes = {
   md: 'h-4 w-4',
 }
 
-export interface Props {
-  name: keyof typeof icons
+export type IconName = keyof typeof icons
+
+interface Props {
+  name: IconName
   size?: keyof typeof sizes
   className?: string
   lazy?: boolean

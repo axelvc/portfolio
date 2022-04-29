@@ -1,13 +1,17 @@
-import data from '/public/data.json'
 import Section from '/components/Section'
 import Icon from '/components/Icon/Icon'
 import MagneticLink from '/components/MagneticLink'
 
-export default function Projects({ className }: { className?: string }) {
+interface Props {
+  data: PageData
+  className?: string
+}
+
+export default function Projects({ data, className }: Props) {
   return (
-    <Section title="projects" className={className}>
+    <Section title={data.projects.title} className={className}>
       <div className="group">
-        {data.projects.map(({ title, link, code, description, technologies }) => (
+        {data.projects.list.map(({ title, link, code, description, technologies }) => (
           <article
             key={title}
             data-cursor-class="opacity-80"
@@ -19,14 +23,14 @@ export default function Projects({ className }: { className?: string }) {
                 target="_blank"
                 rel="noreferrer"
                 className="absolute inset-0"
-                aria-label={title}
-                data-cursor-text="See"
+                aria-label={data.projects.label.replace('{title}', title)}
+                data-cursor-text={data.projects.cursorText}
               />
             )}
             {code && (
               <MagneticLink
                 href={code}
-                title="Code"
+                title={data.projects.codeLabel.replace('{title}', title)}
                 target="_blank"
                 rel="noreferrer"
                 className="z-10 absolute top-6 right-6 grid place-items-center h-8 w-8 transition-colors pointer-fine:hover:text-gray-50 dark:pointer-fine:hover:text-brown-800"

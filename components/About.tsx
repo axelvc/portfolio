@@ -1,19 +1,23 @@
 import Section from '/components/Section'
-import data from '/public/data.json'
 
-export default function About({ className }: { className?: string }) {
+interface Props {
+  data: PageData
+  className?: string
+}
+
+export default function About({ data, className }: Props) {
   return (
-    <Section title="about" className={className}>
-      {data.description.map((paragraph, i) => (
+    <Section title={data.about.title} className={className}>
+      {data.about.description.map((paragraph, i) => (
         <p key={i} className="mt-8">
           {paragraph}
         </p>
       ))}
 
-      <p className="mt-8 mb-3">These are some technologies that I know:</p>
+      <p className="mt-8 mb-3">{data.about.skills.text}</p>
 
       <ul className="list-inside list-disc columns-2">
-        {data.skills.map(skill => (
+        {data.about.skills.list.map(skill => (
           <li key={skill}>{skill}</li>
         ))}
       </ul>

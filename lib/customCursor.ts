@@ -83,6 +83,7 @@ export default function customCursor({ root, dot, text }: Params) {
 
     return {
       text: el.getAttribute(`${prefix}-text`),
+      rootClass: el.getAttribute(`${prefix}-root-class`),
       class: el.getAttribute(`${prefix}-class`),
       style: el.getAttribute(`${prefix}-style`),
       magnetic: el.hasAttribute(`${prefix}-magnetic`),
@@ -99,6 +100,9 @@ export default function customCursor({ root, dot, text }: Params) {
 
       if (data.class) {
         dot.classList.add(...data.class.split(' '))
+      }
+      if (data.rootClass) {
+        root.classList.add(...data.rootClass.split(' '))
       }
       if (data.style) {
         gsap.set(dot, JSON.parse(data.style))
@@ -134,6 +138,9 @@ export default function customCursor({ root, dot, text }: Params) {
 
       if (data.class) {
         dot.classList.remove(...data.class.split(' '))
+      }
+      if (data.rootClass) {
+        root.classList.remove(...data.rootClass.split(' '))
       }
       if (data.style) {
         gsap.set(dot, { clearProps: Object.keys(JSON.parse(data.style)).join() })

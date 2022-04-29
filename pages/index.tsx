@@ -1,13 +1,19 @@
-import { useEffect } from 'react'
-import Underline from '/public/underline.svg'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import Underline from '/public/underline.svg'
 import About from '/components/About'
 import Projects from '/components/Projects'
 import Contact from '/components/Contact'
 import FastLinks from '/components/FastLinks'
 import Cursor from '/components/Cursor'
+import Footer from '/components/Footer'
+import getData from '/lib/getData'
 
-export default function Home() {
+interface Props {
+  data: PageData
+}
+
+const Home: NextPage<Props> = ({ data }) => {
   return (
     <main className="px-5 m-auto max-w-screen-sm md:p-0 xl:m-24">
       <Head>
@@ -28,12 +34,23 @@ export default function Home() {
         </h1>
       </div>
 
-      <FastLinks className="mb-24 xl:fixed xl:w-96 xl:left-[840px] xl:bottom-0" />
-      <About className="my-24" />
-      <Projects className="my-24" />
-      <Contact className="my-24" />
+      <FastLinks data={data} className="mb-24 xl:fixed xl:w-96 xl:left-[840px] xl:bottom-0" />
+      <About data={data} className="my-24" />
+      <Projects data={data} className="my-24" />
+      <Contact data={data} className="my-24" />
+      <Footer data={data} className="my-24" />
 
       <Cursor />
     </main>
   )
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      data: getData(locale || 'en'),
+    },
+  }
+}
+
+export default Home

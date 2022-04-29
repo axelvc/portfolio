@@ -1,34 +1,22 @@
-import data from '/public/data.json'
 import Section from '/components/Section'
-import Icon, { Props as IconProps } from '/components/Icon/Icon'
+import Icon from '/components/Icon/Icon'
 import MagneticLink from '/components/MagneticLink'
 
-const contactList: { name: string; url: string; icon: IconProps['name'] }[] = [
-  {
-    name: 'LinkedIn',
-    icon: 'linkedin',
-    url: data.networks.linkedin,
-  },
-  {
-    name: 'Twitter',
-    icon: 'twitter',
-    url: data.networks.twitter,
-  },
-  {
-    name: 'Email me',
-    icon: 'email',
-    url: `mailto:${data.networks.email}`,
-  },
-]
+interface Props {
+  data: PageData
+  className?: string
+}
 
-export default function Contact({ className }: { className?: string }) {
+export default function Contact({ data, className }: Props) {
+  const contactList = [data.networks.linkedin, data.networks.twitter, data.networks.email]
+
   return (
-    <Section title="contact" className={className}>
+    <Section title={data.contact.title} className={className}>
       <ul className="grid gap-6">
-        {contactList.map(({ name, url, icon }) => (
+        {contactList.map(({ name, link, icon }) => (
           <li key={name}>
             <MagneticLink
-              href={url}
+              href={link}
               className="relative group inline-flex gap-3.5 items-center h-10 transition-colors hover:text-green-600 dark:hover:text-rose-300"
             >
               <Icon name={icon} />
