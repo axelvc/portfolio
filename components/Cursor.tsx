@@ -1,94 +1,41 @@
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import useCursor from '/hooks/useCursor'
 
 export default function Cursor() {
   const rootRef = useRef<HTMLDivElement>(null)
   const dotRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
-  const { setCursor } = useCursor()
 
   useEffect(() => {
-    if (window.matchMedia('(any-hover: none)').matches) return
+    const hasMouse = window.matchMedia('(any-hover: hover)')
+    let destroyCursor = () => {}
+    let load = true
 
-    const root = rootRef.current!
-    const setX = gsap.quickSetter(root, 'x', 'px')
-    const setY = gsap.quickSetter(root, 'y', 'px')
-    const mouse = { x: 0, y: 0 }
-    const pos = { x: 0, y: 0 }
-    const speed = 0.2
-    let customPos: typeof pos | null = null
-
-    function render() {
-      if (customPos) {
-        pos.x += (customPos.x - pos.x) * speed
-        pos.y += (customPos.y - pos.y) * speed
-      } else {
-        pos.x += (mouse.x - pos.x) * speed
-        pos.y += (mouse.y - pos.y) * speed
+    async function checkMouse() {
+      if (!hasMouse.matches) {
+        return destroyCursor()
+        // return destroyCursor.current()
       }
 
-      setX(pos.x)
-      setY(pos.y)
+      const { default: customCursor } = await import('/lib/customCursor')
+
+      if (!load) return
+
+      destroyCursor = customCursor({
+        root: rootRef.current!,
+        dot: dotRef.current!,
+        text: textRef.current!,
+      })
     }
 
-    const initRender = () => gsap.ticker.add(render)
-    const stopRender = () => gsap.ticker.remove(render)
-
-    const enterLeaveTween = gsap.fromTo(
-      root,
-      { scale: 0 },
-      {
-        scale: 1,
-        paused: true,
-        duration: 0.3,
-        onStart: initRender as () => void,
-        onReverseComplete: stopRender,
-      },
-    )
-
-    function updateMouse(ev: MouseEvent) {
-      mouse.x = ev.x
-      mouse.y = ev.y
-    }
-
-    function showCursor(ev: MouseEvent) {
-      pos.x = ev.x
-      pos.y = ev.y
-      enterLeaveTween.play()
-    }
-
-    function hideCursor() {
-      enterLeaveTween.reverse()
-    }
-
-    document.addEventListener('mousemove', updateMouse)
-    document.addEventListener('mouseleave', hideCursor)
-    document.addEventListener('mouseenter', showCursor)
-    document.addEventListener('mousemove', showCursor, { once: true })
-
-    setCursor({
-      root,
-      dot: dotRef.current!,
-      text: textRef.current!,
-      setCustomPos(pos) {
-        customPos = pos
-      },
-      removeCustomPos() {
-        customPos = null
-      },
-    })
+    hasMouse.addEventListener('change', checkMouse)
+    checkMouse()
 
     return () => {
-      document.removeEventListener('mousemove', updateMouse)
-      document.removeEventListener('mouseleave', hideCursor)
-      document.removeEventListener('mouseenter', showCursor)
-      document.removeEventListener('mousemove', showCursor)
-      enterLeaveTween.kill()
-      stopRender()
-      setCursor(null)
+      hasMouse.removeEventListener('change', checkMouse)
+      destroyCursor()
+      load = false
     }
-  }, [setCursor])
+  }, [])
 
   return (
     <div ref={rootRef} className="fixed top-0 left-0 pointer-events-none -translate-x-1/2 -translate-y-1/2 scale-0">
