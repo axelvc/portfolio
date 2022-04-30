@@ -11,11 +11,12 @@ export default function FastLinks({ data, className }: Props) {
 
   return (
     <ul className={`flex ${className}`}>
-      {networksList.map(({ name, link, icon }, i) => (
+      {networksList.map(({ name, link, icon }) => (
         <li key={name}>
           <MagneticLink
             href={link}
             title={name}
+            target="_blank"
             className="inline-grid place-items-center h-10 w-10 rounded transition-colors hover:text-green-600 dark:hover:text-rose-300"
           >
             <Icon name={icon} lazy={false} />
@@ -27,6 +28,7 @@ export default function FastLinks({ data, className }: Props) {
         <MagneticLink
           href={data.cv.link}
           download={data.cv.saveName}
+          target="_blank"
           className="relative group inline-block text-green-600 dark:text-rose-200 dark:hover:text-rose-300 font-medium leading-10"
         >
           {data.cv.title}

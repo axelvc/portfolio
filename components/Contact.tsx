@@ -8,7 +8,11 @@ interface Props {
 }
 
 export default function Contact({ data, className }: Props) {
-  const contactList = [data.networks.linkedin, data.networks.twitter, data.networks.email]
+  const contactList = [
+    data.networks.linkedin,
+    data.networks.twitter,
+    { ...data.networks.email, link: `mailto:${data.networks.email.link}` },
+  ]
 
   return (
     <Section title={data.contact.title} className={className}>
@@ -16,6 +20,7 @@ export default function Contact({ data, className }: Props) {
         {contactList.map(({ name, link, icon }) => (
           <li key={name}>
             <MagneticLink
+              target="_blank"
               href={link}
               className="relative group inline-flex gap-3.5 items-center h-10 transition-colors hover:text-green-600 dark:hover:text-rose-300"
             >
