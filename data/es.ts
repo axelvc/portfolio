@@ -50,8 +50,8 @@ const locale: PageData = {
     title: 'Hablemos!',
   },
   locales: {
-    en: 'Español',
-    es: 'Ingles',
+    en: 'Ingles',
+    es: 'Español',
   },
 }
 
