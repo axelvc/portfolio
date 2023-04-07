@@ -19,7 +19,7 @@ export default function FastLinks({ data, className }: Props) {
             target="_blank"
             className="inline-grid place-items-center h-10 w-10 rounded transition-colors hover:text-green-600 dark:hover:text-rose-300"
           >
-            <Icon name={icon} lazy={false} />
+            <Icon name={icon} />
           </MagneticLink>
         </li>
       ))}

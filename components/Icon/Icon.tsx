@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 
 const icons = {
   code: dynamic(() => import('./code.svg')),
@@ -22,31 +22,15 @@ interface Props {
   name: IconName
   size?: keyof typeof sizes
   className?: string
-  lazy?: boolean
 }
 
-export default function Icon({ name, size = 'md', className = '', lazy = true }: Props) {
+export default function Icon({ name, size = 'md', className = '' }: Props) {
   const ref = useRef<HTMLElement>(null)
-  const [Icon, setIcon] = useState<any>(lazy ? null : icons[name])
-
-  useEffect(() => {
-    if (!lazy && Icon === icons[name]) return
-
-    const observer = new IntersectionObserver(([data]) => {
-      if (data.isIntersecting) {
-        setIcon(icons[name])
-        observer.disconnect()
-      }
-    })
-
-    observer.observe(ref.current!)
-
-    return () => observer.disconnect()
-  }, [lazy, name, Icon])
+  const Icon = icons[name]
 
   return (
     <i ref={ref} className={`inline-grid place-items-center ${sizes[size]} ${className}`}>
-      {Icon && <Icon />}
+      <Icon />
     </i>
   )
 }
