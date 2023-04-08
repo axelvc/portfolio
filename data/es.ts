@@ -40,6 +40,11 @@ const locale: PageData = {
         ...projects.typingTest,
       },
       {
+        title: 'Asky',
+        description: 'Libreria para crear atractivos prompts en la terminal',
+        ...projects.asky,
+      },
+      {
         title: 'Sudoku Game',
         description: null,
         ...projects.sudoku,

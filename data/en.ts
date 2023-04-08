@@ -40,6 +40,11 @@ const locale = {
         ...projects.typingTest,
       },
       {
+        title: 'Asky',
+        description: 'Library to create good looking prompts in the terminal',
+        ...projects.asky,
+      },
+      {
         title: 'Sudoku Game',
         description: null,
         ...projects.sudoku,

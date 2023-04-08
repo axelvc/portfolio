@@ -23,6 +23,11 @@ export const projects: {
     link: 'https://typest.netlify.app/',
     technologies: ['react'],
   },
+  asky: {
+    code: 'https://github.com/axelvc/asky',
+    link: 'https://crates.io/crates/asky',
+    technologies: ['rust'],
+  },
   sudoku: {
     code: 'https://github.com/axelvc/sudoku',
     link: 'https://axelvc-sudoku.netlify.app',
