@@ -25,7 +25,7 @@ export default function Footer({ className, data }: Props) {
           onChange={ev => changeLang(ev.target.value)}
           data-cursor-root-class="dark:mix-blend-difference"
           data-cursor-class="scale-[3] dark:opacity-100"
-          className="p-1 rounded border border-brown-400 dark:bg-brown-900"
+          className="p-1 rounded border border-brown-400 bg-gray-50 dark:bg-brown-900"
         >
           {router.locales!.map(locale => (
             <option key={locale} value={locale}>

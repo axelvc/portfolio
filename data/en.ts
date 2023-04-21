@@ -10,8 +10,8 @@ const locale = {
   about: {
     title: 'About me',
     description: [
-      "Hello! My name is Axel. I'm a self-taught developer from Mexico, a big fan of all about technology, and interested in accessibility and UX/UI.",
-      "I've loved technology for as long as I can remember and started programming in 2018. I consider myself a curious person, so I'm constantly learning new things",
+      "I'm a self-taught Mexican developer. Focused on making good-looking websites, but also easy to use.",
+      "Fan of technology since my childhood. I started programming in 2018 and consider myself a curious person, so I'm constantly learning new things. I like to try/make tools to optimize and or automate processes.",
     ],
     skills: {
       text: 'These are some technologies that I know:',

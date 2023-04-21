@@ -10,8 +10,8 @@ const locale: PageData = {
   about: {
     title: 'Sobre mí',
     description: [
-      'Hola! Me llamo Axel. Soy un programador autodidacta de México, fanático de todo lo relacionado a la tecnología, también interesado en accesibilidad y UX/UI',
-      'Me ha encantado la tecnología desde que tengo memoria y empece en la programación en el 2018. Me considero una persona curiosa, por lo que siempre estoy cosas nuevas',
+      "Soy un desarrollador mexicano autodidacta. Enfocado en hacer sitios web atractivos, pero también fáciles de usar.",
+      "Fanático de la tecnología desde mi infancia. Empecé a programar en 2018 y me considero una persona curiosa, por lo que constantemente estoy aprendiendo cosas nuevas. Me gusta probar/hacer herramientas para optimizar y/o automatizar procesos."
     ],
     skills: {
       text: 'Algunas tecnologías que conozco:',
