@@ -51,9 +51,6 @@ const locale: PageData = {
       },
     ],
   },
-  contact: {
-    title: 'Hablemos!',
-  },
   locales: {
     en: 'Ingles',
     es: 'Español',

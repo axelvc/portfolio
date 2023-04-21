@@ -47,19 +47,14 @@ export const networks: {
     icon: 'linkedin',
     link: 'http://linkedin.com/in/axelvc',
   },
-  twitter: {
-    name: 'Twitter',
-    icon: 'twitter',
-    link: 'https://twitter.com/axel__vc',
-  },
   github: {
     name: 'Github',
     icon: 'github',
     link: 'https://github.com/axelvc',
   },
-  email: {
-    name: 'Email me',
-    icon: 'email',
-    link: 'a.axelvc@gmail.com',
+  twitter: {
+    name: 'Twitter',
+    icon: 'twitter',
+    link: 'https://twitter.com/axel__vc',
   },
 }

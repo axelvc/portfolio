@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Underline from '/public/underline.svg'
 import About from '/components/About'
 import Projects from '/components/Projects'
-import Contact from '/components/Contact'
 import FastLinks from '/components/FastLinks'
 import Cursor from '/components/Cursor'
 import Footer from '/components/Footer'
@@ -37,7 +36,6 @@ const Home: NextPage<Props> = ({ data }) => {
       <FastLinks data={data} className="mb-24 xl:fixed xl:w-96 xl:left-[840px] xl:bottom-0" />
       <About data={data} className="my-24" />
       <Projects data={data} className="my-24" />
-      <Contact data={data} className="my-24" />
       <Footer data={data} className="my-24" />
 
       <Cursor />

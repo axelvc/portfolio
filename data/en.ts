@@ -51,9 +51,6 @@ const locale = {
       },
     ],
   },
-  contact: {
-    title: "Let's talk!",
-  },
   locales: {
     en: 'English',
     es: 'Spanish',
