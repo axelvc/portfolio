@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 body {
   font-family: var(--font-schibsted-grotesk);
@@ -46,15 +46,15 @@ body {
   }
 }
 
-a {
+a:not(.no-underline) {
   @apply relative no-underline;
-}
 
-a::after {
-  content: "";
-  @apply absolute left-0 -bottom-1 w-full h-px bg-current origin-right scale-x-0 transition-transform duration-200 ease-out;
-}
+  &::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-full h-px bg-current origin-right scale-x-0 transition-transform duration-200 ease-out;
+  }
 
-a:hover::after {
-  @apply origin-left scale-x-100;
+  &:hover::after {
+    @apply origin-left scale-x-100;
+  }
 }

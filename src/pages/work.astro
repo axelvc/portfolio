@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro'
+import IconGithub from '../components/icons/github.svg'
+
+interface Work {
+  title: string
+  description: string
+  link: string
+  code?: string
+}
+
+const work = [
+  {
+    title: 'Mini Translator',
+    description: 'Browser extension to translate text on any website.',
+    link: 'https://chromewebstore.google.com/detail/mini-translator/godoijpcenklboeghnkeafimbadkgiib',
+    code: 'https://github.com/axelvc/mini_translator',
+  },
+  {
+    title: 'Typing test',
+    description: 'Typing test game',
+    link: 'https://typest.netlify.app/',
+    code: 'https://github.com/axelvc/typing_test',
+  },
+  {
+    title: 'Asky',
+    description: 'Rust CLI Library for good looking prompts',
+    link: 'https://crates.io/crates/asky',
+  },
+  {
+    title: 'Template String',
+    description: 'Plugin for Neovim to use template strings in your code.',
+    link: 'https://github.com/axelvc/template-string.nvim',
+  },
+  {
+    title: 'Unito',
+    description: 'Plugin for Neovim to convert px to rem and vice versa',
+    link: 'https://github.com/axelvc/unito.nvim',
+  },
+  {
+    title: 'Snake Game',
+    description: 'Snake game made in vanilla JavaScript',
+    link: 'https://axelvc-snake-game.netlify.app/',
+    code: 'https://github.com/axelvc/snake-game',
+  },
+  {
+    title: 'Weather app',
+    description: 'Weather app made with svelte-kit for a hackathon event',
+    link: 'https://weather-app-demo-aavc.vercel.app/',
+    code: 'https://github.com/axelvc/weather',
+  },
+]
+---
+
+<Layout>
+  <main class="mt-20">
+    <h1 class="text-4xl font-bold tracking-wider">/Work</h1>
+
+    <section class="mt-16 mb-40 grid grid-cols-2 gap-8">
+      {
+        work.map(work => (
+          <article class="py-8 px-4 flex justify-between gap-8 items-center relative group">
+            <a
+              href={work.link}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="no-underline absolute inset-0 transition-colors duration-200 border-b border-b-base-800 group-hover:border-b-base-200"
+            />
+
+            <div>
+              <h3 class="text-xl font-bold">{work.title}</h3>
+              <p class="text-sm text-base-400">{work.description}</p>
+            </div>
+
+            {work.code && (
+              <a
+                href="https://github.com/axelvc/asky"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="no-underline h-10 w-10 grid place-items-center transition-colors duration-200 relative group/code hover:text-base-900"
+              >
+                <IconGithub class="z-1 w-6 h-6" />
+                <div class="absolute inset-0 bg-base-200 transition-transform duration-200 scale-y-0 group-hover/code:scale-y-100" />
+              </a>
+            )}
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</Layout>
