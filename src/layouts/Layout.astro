@@ -1,3 +1,10 @@
+---
+import { Font } from 'astro:assets'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '../styles/global.css'
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +12,12 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Axel | Web Developer</title>
+		<Font cssVariable="--font-schibsted-grotesk" preload />
 	</head>
-	<body>
+	<body class="bg-base-900 text-base-50 max-w-5xl box-content mx-auto px-10">
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

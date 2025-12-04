@@ -1,11 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-	<Welcome />
+	<main class="mt-20">
+		<h1 class="text-5xl font-bold tracking-wider">
+			I'm Axel
+			<span class="block text-4xl text-base-400">Web Developer</span>
+		</h1>
+
+		<p class="paragraph">
+			I'm a self-taught based in <span class="highlight">CDMX</span> with 2+ years of experience developer who appreciates
+			the finer details. My work sits at the intersection of <span class="highlight">performance</span> and
+			<span class="highlight">aesthetics</span>. Passionate about clean code and scalable architecture. I specialize in
+			crafting user-focused
+		</p>
+
+		<p class="paragraph">
+			Starting in <span class="highlight">2018</span>, I've explored various corners of the web ecosystem, from
+			<span class="highlight">frontend interactivity</span> to <span class="highlight">backend logic</span> using. Besides
+			explore technologies of different kinds of ecosystem
+		</p>
+
+		<a href="#cv" class="text-lg tracking-wide text-base-400 leading-10">Download my CV</a>
+	</main>
 </Layout>
