@@ -1,0 +1,87 @@
+<canvas id="background" aria-hidden="true" class="fixed inset-0 -z-1"></canvas>
+
+<style>
+  #background {
+    display: none;
+  }
+  @media (pointer: fine) {
+    #background {
+      display: block;
+    }
+  }
+</style>
+
+<script is:inline>
+  const canvas = document.getElementById('background')
+  const ctx = canvas.getContext('2d')
+
+  const gridSize = 240
+  const influenceRadius = 560
+
+  const hoveColor = 'hsl(0 0% 8%)'
+
+  let width, height
+  let mouseX = -1000
+  let mouseY = -1000
+  let animationId
+
+  function resize() {
+    width = window.innerWidth
+    height = window.innerHeight
+    canvas.width = width
+    canvas.height = height
+  }
+
+  function move(e) {
+    mouseX = e.clientX
+    mouseY = e.clientY
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height)
+
+    for (let x = 0; x < width; x += gridSize) {
+      for (let y = 0; y < height; y += gridSize) {
+        const centerX = x + gridSize / 2
+        const centerY = y + gridSize / 2
+        const dist = Math.hypot(mouseX - centerX, mouseY - centerY)
+
+        if (dist < influenceRadius) {
+          const intensity = 1 - dist / influenceRadius
+
+          ctx.beginPath()
+          ctx.strokeStyle = hoveColor
+          ctx.lineWidth = 2 * intensity
+          ctx.strokeRect(x, y, gridSize, gridSize)
+        }
+      }
+    }
+
+    animationId = requestAnimationFrame(draw)
+  }
+
+  function start() {
+    resize()
+    draw()
+    window.addEventListener('mousemove', move)
+    window.addEventListener('resize', resize)
+  }
+
+  function stop() {
+    cancelAnimationFrame(animationId)
+    window.removeEventListener('mousemove', move)
+    window.removeEventListener('resize', resize)
+  }
+
+  function handlePointerChange(e) {
+    if (e.matches) {
+      start()
+    } else {
+      stop()
+    }
+  }
+
+  const mediaQuery = window.matchMedia('(pointer: fine)')
+  mediaQuery.addEventListener('change', handlePointerChange)
+  handlePointerChange(mediaQuery)
+</script>

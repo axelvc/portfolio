@@ -47,11 +47,11 @@ body {
 }
 
 a:not(.no-underline) {
-  @apply relative no-underline;
+  @apply relative no-underline transition-colors hover:text-accent-200;
 
   &::after {
     content: '';
-    @apply absolute left-0 -bottom-1 w-full h-px bg-current origin-right scale-x-0 transition-transform duration-200 ease-out;
+    @apply absolute left-0 -bottom-1 w-full h-px bg-current origin-right scale-x-0 transition-transform ease-out;
   }
 
   &:hover::after {
