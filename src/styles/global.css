@@ -33,7 +33,7 @@ body {
 }
 
 *::selection {
-  @apply bg-accent-400 text-base-900;
+  @apply bg-accent-200 text-base-900;
 }
 
 @layer components {
