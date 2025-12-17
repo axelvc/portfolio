@@ -9,7 +9,7 @@ interface Work {
   code?: string
 }
 
-const work = [
+const work: Work[] = [
   {
     title: 'Mini Translator',
     description: 'Browser extension to translate text on any website.',
@@ -95,7 +95,7 @@ const work = [
                 href={work.code}
                 rel="noopener noreferrer"
                 target="_blank"
-                class="no-underline h-10 w-10 grid place-items-center transition-colors relative group/code hover:text-base-900"
+                class="shrink-0 no-underline h-10 w-10 grid place-items-center transition-colors relative group/code hover:text-base-900"
               >
                 <IconGithub class="z-1 w-6 h-6" />
                 <div class="absolute inset-0 bg-base-200 transition-transform scale-y-0 group-hover/code:scale-y-100" />
