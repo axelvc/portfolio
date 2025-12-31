@@ -14,7 +14,7 @@ export default defineConfig({
         provider: fontProviders.google(),
         name: 'Schibsted Grotesk',
         cssVariable: '--font-schibsted-grotesk',
-        weights: [400, 700]
+        weights: [400, 500, 700]
       }
     ]
   }

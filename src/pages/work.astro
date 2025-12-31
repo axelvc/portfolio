@@ -1,98 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import IconGithub from '../components/icons/github.svg'
+import client from '../services/notion'
 
-interface Work {
-  title: string
-  description: string
-  link: string
-  code?: string
-}
-
-const work: Work[] = [
-  {
-    title: 'Mini Translator',
-    description: 'Browser extension to translate text on any website.',
-    link: 'https://chromewebstore.google.com/detail/mini-translator/godoijpcenklboeghnkeafimbadkgiib',
-    code: 'https://github.com/axelvc/mini_translator',
-  },
-  {
-    title: 'Typing test',
-    description: 'Typing test game',
-    link: 'https://typest.netlify.app/',
-    code: 'https://github.com/axelvc/typing_test',
-  },
-  {
-    title: 'Asky',
-    description: 'Rust CLI Library for good looking prompts',
-    link: 'https://crates.io/crates/asky',
-  },
-  {
-    title: 'Template String',
-    description: 'Plugin for Neovim to use template strings in your code.',
-    link: 'https://github.com/axelvc/template-string.nvim',
-  },
-  {
-    title: 'Unito',
-    description: 'Plugin for Neovim to convert px to rem and vice versa',
-    link: 'https://github.com/axelvc/unito.nvim',
-  },
-  {
-    title: 'Portfolio v1',
-    description: 'Previous version of my portfolio',
-    link: 'https://axelvc-v1.vercel.app/',
-    code: 'https://github.com/axelvc/portfolio/tree/v1',
-  },
-  {
-    title: 'Connect Four',
-    description: 'Connect Four game with p2p multiplayer',
-    link: 'https://mini-connect.vercel.app/',
-    code: 'https://github.com/axelvc/connect-four',
-  },
-  {
-    title: 'Weather app',
-    description: 'Weather app made with svelte-kit for a hackathon event',
-    link: 'https://weather-app-demo-aavc.vercel.app/',
-    code: 'https://github.com/axelvc/weather',
-  },
-  {
-    title: 'Sudoku',
-    description: 'Sudoku game made for fun',
-    link: 'https://axelvc-sudoku.netlify.app/',
-    code: 'https://github.com/axelvc/sudoku',
-  },
-  {
-    title: 'Snake Game',
-    description: 'Snake game made in vanilla JavaScript',
-    link: 'https://axelvc-snake-game.netlify.app/',
-    code: 'https://github.com/axelvc/snake-game',
-  },
-]
+const data = await client.getWorkData()
 ---
-
 <Layout>
   <main class="mt-20">
     <h1 class="text-4xl font-bold tracking-wider">/Work</h1>
 
     <section class="mt-16 mb-40 grid grid-cols-1 sm:grid-cols-2 gap-8">
       {
-        work.map(work => (
+        data.map(project => (
           <article class="py-8 px-4 flex justify-between gap-8 items-center relative group">
             <a
-              href={work.link}
+              href={project.link}
               rel="noopener noreferrer"
               target="_blank"
               class="no-underline absolute inset-0 transition-colors border-b border-b-base-800 group-hover:border-b-base-200"
             />
 
             <div>
-              <h3 class="text-xl font-bold">{work.title}</h3>
-              <p class="text-sm text-base-400">{work.description}</p>
+              <h3 class="text-xl font-bold">{project.title}</h3>
+              <p class="text-sm text-base-400">{project.description}</p>
             </div>
 
-            {work.code && (
+            {project.code && (
               <a
-                href={work.code}
+                href={project.code}
                 rel="noopener noreferrer"
                 target="_blank"
                 class="shrink-0 no-underline h-10 w-10 grid place-items-center transition-colors relative group/code hover:text-base-900"

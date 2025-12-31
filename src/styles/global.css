@@ -38,10 +38,10 @@ body {
 
 @layer components {
   .paragraph {
-    @apply max-w-[70ch] text-lg text-pretty leading-relaxed my-16 text-base-400;
+    @apply max-w-[70ch] text-lg text-pretty leading-relaxed my-12 text-base-200;
 
-    .highlight {
-      @apply text-base-200;
+    strong {
+      @apply font-medium;
     }
   }
 }
